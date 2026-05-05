@@ -8,18 +8,16 @@ public class levelManager : MonoBehaviour
     public string LevelName;
     void Start()
     {
-        if(instance = null)
-        {
-            instance = this;
-        }
-        else
-        {
-            Destroy(gameObject);
-        }
+        
     }
 
     // Update is called once per frame
     void Update()
+    {
+        
+            
+    }
+    public void OnClick()
     {
         UnityEngine.SceneManagement.SceneManager.LoadScene(LevelName);
     }
