@@ -129,6 +129,7 @@ GameObject:
   m_Component:
   - component: {fileID: 248095048}
   - component: {fileID: 248095047}
+  - component: {fileID: 248095049}
   m_Layer: 0
   m_Name: Capsule
   m_TagString: Untagged
@@ -209,6 +210,22 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &248095049
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 248095046}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8c0a67120d7c8e04b92044f2b54bc2da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
+  unitName: Player
+  maxHP: 100
+  currentHP: 100
+  damage: 10
 --- !u!1 &344150678
 GameObject:
   m_ObjectHideFlags: 0
@@ -439,6 +456,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a876461204d82341b226c2d607f6588, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
+  state: 0
+  playerUnit: {fileID: 248095049}
+  enemyUnit: {fileID: 715309654}
 --- !u!1 &519134467
 GameObject:
   m_ObjectHideFlags: 0
@@ -772,6 +792,7 @@ GameObject:
   m_Component:
   - component: {fileID: 715309653}
   - component: {fileID: 715309652}
+  - component: {fileID: 715309654}
   m_Layer: 0
   m_Name: Triangle
   m_TagString: Untagged
@@ -852,6 +873,22 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &715309654
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 715309651}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8c0a67120d7c8e04b92044f2b54bc2da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Unit_Stats
+  unitName: Skull Spider
+  maxHP: 300
+  currentHP: 300
+  damage: 25
 --- !u!1 &1053460438
 GameObject:
   m_ObjectHideFlags: 0

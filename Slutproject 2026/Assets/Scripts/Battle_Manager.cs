@@ -35,7 +35,7 @@ public class Battle_Manager : MonoBehaviour
         state = BattleState.PlayerTurn;
         StateName.text = "Hero Turn";
 
-        yield return new WaitForSeconds(5f);
+
 
         PlayerTurn();
     }
