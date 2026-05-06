@@ -1,5 +1,6 @@
 using TMPro;
 using UnityEngine;
+//Alexander
 public enum BattleState
 {
     Start, 
@@ -16,8 +17,8 @@ public class Battle_Manager : MonoBehaviour
     TextMeshProUGUI StateName;
 
 
-    public Unit playerUnit;
-    public Unit enemyUnit;
+    public GameObject playerUnit;
+    public GameObject enemyUnit;
     void Start()
     {
         state = BattleState.Start;
@@ -38,7 +39,7 @@ public class Battle_Manager : MonoBehaviour
         Debug.Log("Players turn");
         //Fixa UI för actions
     }
-    Public void OnAttackButton()
+    public void OnAttackButton()
     {
         if (state != BattleState.PlayerTurn) return;
         StartCoroutine(PlayerAttack());
