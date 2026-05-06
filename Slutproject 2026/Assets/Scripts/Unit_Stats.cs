@@ -5,6 +5,7 @@ public class Unit_Stats : MonoBehaviour
     public string unitName;
     public int maxHP;
     public int currentHP;
+    public int damage;
 
     public void TakeDamage(int amount)
     {

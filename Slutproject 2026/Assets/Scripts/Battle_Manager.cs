@@ -17,12 +17,15 @@ public class Battle_Manager : MonoBehaviour
     TextMeshProUGUI StateName;
 
 
-    public GameObject playerUnit;
-    public GameObject enemyUnit;
+    public Unit_Stats playerUnit;
+    public Unit_Stats enemyUnit;
     void Start()
     {
         state = BattleState.Start;
         StateName.text = "Battle Starting";
+
+        
+
         SetupBattle();
     }
 
@@ -31,6 +34,9 @@ public class Battle_Manager : MonoBehaviour
         // Fixa hitpoint counter / set hitpoints / stats och whatever
         state = BattleState.PlayerTurn;
         StateName.text = "Hero Turn";
+
+        yield return new WaitForSeconds(5f);
+
         PlayerTurn();
     }
 
@@ -77,7 +83,7 @@ public class Battle_Manager : MonoBehaviour
 
         playerUnit.TakeDamage(enemyUnit.damage);
 
-        if (playerUnit.curretnHP <= 0)
+        if (playerUnit.currentHP <= 0)
         {
             state = BattleState.Lost;
             StateName.text = "Defeat";
