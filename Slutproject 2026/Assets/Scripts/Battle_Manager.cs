@@ -16,16 +16,17 @@ public class Battle_Manager : MonoBehaviour
 
     TextMeshProUGUI StateName;
 
+    
 
     public Unit_Stats playerUnit;
     public Unit_Stats enemyUnit;
     void Start()
     {
+        StateName = GetComponent<TextMeshProUGUI>();
         state = BattleState.Start;
         StateName.text = "Battle Starting";
 
         
-
         SetupBattle();
     }
 
@@ -45,6 +46,8 @@ public class Battle_Manager : MonoBehaviour
         Debug.Log("Players turn");
         //Fixa UI för actions
     }
+
+ 
     public void OnAttackButton()
     {
         if (state != BattleState.PlayerTurn) return;
