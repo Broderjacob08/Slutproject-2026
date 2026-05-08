@@ -2,6 +2,7 @@ using UnityEngine;
 
  public class Abilities : MonoBehaviour
 {
+    //Ian
     string name;
     int dmg;
     int cost;
@@ -13,5 +14,10 @@ using UnityEngine;
         this.dmg = dmg;
         this.cost = cost;
         this.targetLimit = targetLimit;
+    }
+
+    public virtual void use()
+    {
+
     }
 }
