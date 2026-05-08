@@ -1,16 +1,17 @@
 using UnityEngine;
 
-public class Abilities : MonoBehaviour
+ public class Abilities : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
+    string name;
+    int dmg;
+    int cost;
+    int targetLimit;
 
-    // Update is called once per frame
-    void Update()
+    public Abilities(string name, int dmg, int cost, int targetLimit)
     {
-        
+        this.name = name;
+        this.dmg = dmg;
+        this.cost = cost;
+        this.targetLimit = targetLimit;
     }
 }
