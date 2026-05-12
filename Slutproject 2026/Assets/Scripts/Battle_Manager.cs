@@ -48,17 +48,17 @@ public class Battle_Manager : MonoBehaviour
     }
 
  
-    public void OnAttackButton()
+    public void OnSwordButton()
     {
         if (state != BattleState.PlayerTurn) return;
-        StartCoroutine(PlayerAttack());
+        StartCoroutine(SwordAttack());
     }
-    System.Collections.IEnumerator PlayerAttack()
+    System.Collections.IEnumerator SwordAttack()
     {
         state = BattleState.Busy;
         StateName.text = "Hero Action";
 
-        enemyUnit.TakeDamage(playerUnit.damage);
+        enemyUnit.TakeDamage(playerUnit.SwordDamage);
 
         yield return new WaitForSeconds(1f);
 

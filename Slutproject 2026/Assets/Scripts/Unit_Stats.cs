@@ -3,15 +3,22 @@ using UnityEngine;
 //Alexander
 public class Unit_Stats : MonoBehaviour
 {
-    public string unitName;
-    public int maxHP;
-    public int currentHP;
-    public int damage;
+    string unitName;
+    int maxHP;
+    int currentHP;
+    
+
+    public Unit_Stats(string unitName, int maxHP, int currentHP)
+    {
+        this.unitName = unitName;
+        this.maxHP = maxHP;
+        this.currentHP = currentHP;
+    }
 
     public TextMeshProUGUI HPCounter;
     private void Start()
     {
-        HPCounter = GetComponent<TextMeshProUGUI>();
+        
     }
 
     public void TakeDamage(int amount)
@@ -23,4 +30,5 @@ public class Unit_Stats : MonoBehaviour
     {
         HPCounter.text = currentHP + "of" + maxHP;
     }
+    
 }

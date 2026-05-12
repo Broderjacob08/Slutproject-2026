@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace Assets.Scripts
 {
     //Ian
-    internal class Spell : Abilities
+    public class Spell : Abilities
     {
         int cooldown;
         public Spell(string name, int dmg, int cost, int targetLimit, int cooldown) : base(name, dmg, cost, targetLimit)
