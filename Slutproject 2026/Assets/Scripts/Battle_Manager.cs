@@ -58,7 +58,9 @@ public class Battle_Manager : MonoBehaviour
         state = BattleState.Busy;
         StateName.text = "Hero Action";
 
-        enemyUnit.TakeDamage(playerUnit.SwordDamage);
+
+
+        //enemyUnit.TakeDamage(playerUnit.SwordDamage);
 
         yield return new WaitForSeconds(1f);
 
@@ -84,7 +86,7 @@ public class Battle_Manager : MonoBehaviour
 
         yield return new WaitForSeconds(1f);
 
-        playerUnit.TakeDamage(enemyUnit.damage);
+        //playerUnit.TakeDamage(enemyUnit.damage);
 
         if (playerUnit.currentHP <= 0)
         {

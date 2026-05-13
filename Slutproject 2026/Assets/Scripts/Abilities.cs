@@ -3,10 +3,10 @@ using UnityEngine;
  public class Abilities : MonoBehaviour
 {
     //Ian
-    string name;
-    int Abilitydmg;
-    int cost;
-    int targetLimit;
+    public string name;
+    public int Abilitydmg;
+    public int cost;
+    public int targetLimit;
 
     public Abilities(string name, int Abilitydmg, int cost, int targetLimit)
     {
