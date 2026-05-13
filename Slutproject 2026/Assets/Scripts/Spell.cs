@@ -10,7 +10,7 @@ namespace Assets.Scripts
     public class Spell : Abilities
     {
         int cooldown;
-        public Spell(string name, int dmg, int cost, int targetLimit, int cooldown) : base(name, dmg, cost, targetLimit)
+        public Spell(string name, int Abilitydmg, int cost, int targetLimit, int cooldown) : base(name, Abilitydmg, cost, targetLimit)
         {
             this.cooldown = cooldown;
         }

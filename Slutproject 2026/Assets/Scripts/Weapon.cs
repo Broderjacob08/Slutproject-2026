@@ -9,7 +9,7 @@ namespace Assets.Scripts
     //Ian
     public class Weapon : Abilities
     {
-        public Weapon(string name, int dmg, int cost, int targetLimit) : base(name, dmg, cost, targetLimit)
+        public Weapon(string name, int Abilitydmg, int cost, int targetLimit) : base(name, Abilitydmg, cost, targetLimit)
         {
             
         }

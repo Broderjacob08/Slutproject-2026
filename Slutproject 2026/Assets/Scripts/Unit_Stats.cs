@@ -3,9 +3,9 @@ using UnityEngine;
 //Alexander
 public class Unit_Stats : MonoBehaviour
 {
-    string unitName;
-    int maxHP;
-    int currentHP;
+    public string unitName;
+    public int maxHP;
+    public int currentHP;
     
 
     public Unit_Stats(string unitName, int maxHP, int currentHP)
