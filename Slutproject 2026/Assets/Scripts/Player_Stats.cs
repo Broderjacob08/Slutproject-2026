@@ -3,8 +3,11 @@ using UnityEngine;
 
 public class Player_Stats : Unit_Stats
 {
+    public int basedmg;
+    
+    
     public Player_Stats(string unit_name, int maxHP, int currentHP, int basedmg) : base(unit_name, maxHP, currentHP)
     {
-
+        this.basedmg = basedmg;
     }
 }

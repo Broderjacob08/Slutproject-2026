@@ -4,14 +4,14 @@ using UnityEngine;
 {
     //Ian
     string name;
-    int dmg;
+    int Abilitydmg;
     int cost;
     int targetLimit;
 
     public Abilities(string name, int Abilitydmg, int cost, int targetLimit)
     {
         this.name = name;
-        this.dmg = dmg;
+        this.Abilitydmg = Abilitydmg;
         this.cost = cost;
         this.targetLimit = targetLimit;
     }
