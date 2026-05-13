@@ -1,25 +1,31 @@
+using NUnit.Framework;
+using System.Collections.Generic;
 using UnityEngine;
 //Alexander
 
+[System.Serializable]
 public class levelManager : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    //Ian
 
-    public static levelManager instance;
-    public string LevelName;
-    void Start()
-    {
-        
-    }
+    //public static levelManager instance;
+    //public string LevelName;
+    public List<levelConnect> ConnectedLevels = new List<levelConnect>();
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-            
-    }
-    public void OnClick()
+    /*public void OnClick()
     {
         UnityEngine.SceneManagement.SceneManager.LoadScene(LevelName);
-    }
+    }*/
+}
+
+
+[System.Serializable]
+public class levelConnect
+{
+    public List<int> ConnectedLevels = new List<int>();
+}
+
+public class Level
+{
+
 }
