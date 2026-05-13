@@ -15,20 +15,12 @@ public class Unit_Stats : MonoBehaviour
         this.currentHP = currentHP;
     }
 
-    public TextMeshProUGUI HPCounter;
+    
     private void Start()
     {
         
     }
 
-    public void TakeDamage(int amount)
-    {
-        currentHP -= amount;
-        if (currentHP < 0) currentHP = 0;
-    }
-    private void Update()
-    {
-        HPCounter.text = currentHP + "of" + maxHP;
-    }
+    
     
 }

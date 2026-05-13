@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 namespace Assets.Scripts
 {
     //Ian
+    //Alexander (ändrade dmg till Abilitydmg)
 
     public class Weapon : Abilities
     {

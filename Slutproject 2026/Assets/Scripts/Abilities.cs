@@ -3,6 +3,7 @@ using UnityEngine;
  public class Abilities : MonoBehaviour
 {
     //Ian
+    //Alexander (Gjorde variabler public och ändrade dmg till Abilitydmg)
     public string name;
     public int Abilitydmg;
     public int cost;
