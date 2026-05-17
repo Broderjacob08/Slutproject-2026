@@ -86,6 +86,7 @@ public class Battle_Manager : MonoBehaviour
 
         yield return new WaitForSeconds(1f);
 
+        EnemyAttackChoice();
         //playerUnit.TakeDamage(enemyUnit.damage);
 
         if (playerUnit.currentHP <= 0)
