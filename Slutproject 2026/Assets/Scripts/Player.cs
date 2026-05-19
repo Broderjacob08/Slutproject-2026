@@ -17,7 +17,9 @@ public class Player : MonoBehaviour
     }
     public int SwordDamage()
     {
-        int SwordDamage = Hero.basedmg + Sword.Abilitydmg;
+        int BonusModifier = Random.Range(5, 10);
+        
+        int SwordDamage = Hero.basedmg + Sword.Abilitydmg + BonusModifier;
 
         return SwordDamage;
     }
