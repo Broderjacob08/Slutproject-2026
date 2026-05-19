@@ -30,6 +30,7 @@ public class UnSkull_SkullSpider : MonoBehaviour
             int FieryCrunch = Unskulled_Spider.baseModifier + bite.Abilitydmg;
 
             AttackName = "Firey Crunch";
+            print("crunch");
             return FieryCrunch;
             
 
@@ -38,6 +39,7 @@ public class UnSkull_SkullSpider : MonoBehaviour
             int FireStorm = Unskulled_Spider.baseModifier + LavaSpray.Abilitydmg;
 
             AttackName = "Fire Storm";
+            print("Storm");
             return FireStorm;
 
         }else if(NextAttack == 3)
@@ -45,6 +47,7 @@ public class UnSkull_SkullSpider : MonoBehaviour
             int FailedAttack = 0;
 
             AttackName = "Attack failed";
+            print("failed");
             return FailedAttack;
         }
         return NextAttack;
@@ -54,7 +57,6 @@ public class UnSkull_SkullSpider : MonoBehaviour
     {
         Unskulled_Spider.currentHP -= amount;
         if (Unskulled_Spider.currentHP < 0) Unskulled_Spider.currentHP = 0;
-        print("YAZ FELLER");
     }
     private void Update()
     {

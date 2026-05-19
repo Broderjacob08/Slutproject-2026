@@ -91,7 +91,7 @@ public class Battle_Manager : MonoBehaviour
 
 
         //playerUnit.TakeDamage(enemyUnit.damage);
-        enemyUnit.EnemyAttackChoice();
+        playerUnit.TakeDamage(enemyUnit.EnemyAttackChoice());
 
 
         if (playerUnit.Hero.currentHP <= 0)
