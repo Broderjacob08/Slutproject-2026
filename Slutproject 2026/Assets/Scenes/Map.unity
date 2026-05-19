@@ -403,7 +403,7 @@ GameObject:
   - component: {fileID: 276246315}
   - component: {fileID: 276246314}
   m_Layer: 5
-  m_Name: Button
+  m_Name: 1Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -655,9 +655,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18b81589185d36f4e8ee69aaf002617b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::levelManager
-  ConnectedLevels:
-  - ConnectedLevels: 00000000
-  - ConnectedLevels: 
+  Levels:
+  - keyNeeded: 0
+    keyGiven: 0
+    blah: {fileID: 276246312}
+    isLocked: 0
+  - keyNeeded: 0
+    keyGiven: 0
+    blah: {fileID: 103223390}
+    isLocked: 1
 --- !u!4 &454612429
 Transform:
   m_ObjectHideFlags: 0
