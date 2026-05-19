@@ -23,6 +23,14 @@ public class Player : MonoBehaviour
 
         return SwordDamage;
     }
+    public int HealSpell()
+    {
+        int BonusModifier = Random.Range(5, 15);
+
+        int HealEffect = Hero.basedmg * -1 - BonusModifier;
+
+        return HealEffect;
+    }
 
     public void TakeDamage(int amount)
     {

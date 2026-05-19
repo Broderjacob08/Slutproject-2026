@@ -46,8 +46,33 @@ public class Battle_Manager : MonoBehaviour
         Debug.Log("Players turn");
         //Fixa UI för actions
     }
+    public void OnHealButton()
+    {
+        if (state != BattleState.PlayerTurn) return;
+        StartCoroutine(HealthSpell());
+    }
+    System.Collections.IEnumerator HealthSpell()
+    {
+        state = BattleState.Busy;
+        StateName.text = "Hero Action";
 
- 
+
+
+
+
+        yield return new WaitForSeconds(1f);
+
+
+        playerUnit.TakeDamage(playerUnit.HealSpell());
+
+      
+        state = BattleState.EnemyTurn;
+        StateName.text = "Monster Turn";
+        StartCoroutine(EnemyTurn());
+        
+
+    }
+
     public void OnSwordButton()
     {
         if (state != BattleState.PlayerTurn) return;
