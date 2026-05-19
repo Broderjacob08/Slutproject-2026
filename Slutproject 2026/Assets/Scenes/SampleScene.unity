@@ -355,7 +355,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 044bfd5ae29f1d94587c6cb3e9c0b020, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Player
-  HPCounter: {fileID: 0}
+  HPCounter: {fileID: 1969824465}
 --- !u!1 &331249893
 GameObject:
   m_ObjectHideFlags: 0
@@ -1157,7 +1157,6 @@ MonoBehaviour:
   unitName: Skull Spider
   maxHP: 300
   currentHP: 300
-  HPCounter: {fileID: 835348266}
 --- !u!1 &835348264
 GameObject:
   m_ObjectHideFlags: 0

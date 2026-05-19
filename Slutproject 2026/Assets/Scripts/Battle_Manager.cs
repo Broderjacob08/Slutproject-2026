@@ -18,8 +18,8 @@ public class Battle_Manager : MonoBehaviour
 
     
 
-    public Unit_Stats playerUnit;
-    public Unit_Stats enemyUnit;
+    public Player playerUnit;
+    public UnSkull_SkullSpider enemyUnit;
     void Start()
     {
         StateName = GetComponent<TextMeshProUGUI>();
@@ -60,11 +60,14 @@ public class Battle_Manager : MonoBehaviour
 
 
 
-        //enemyUnit.TakeDamage(playerUnit.SwordDamage);
+        
 
         yield return new WaitForSeconds(1f);
 
-        if(enemyUnit.currentHP <= 0)
+        
+        enemyUnit.TakeDamage(playerUnit.SwordDamage());
+
+        if (enemyUnit.Unskulled_Spider.currentHP <= 0)
         {
             state = BattleState.Won;
             StateName.text = "Enemy defeated";
@@ -86,10 +89,12 @@ public class Battle_Manager : MonoBehaviour
 
         yield return new WaitForSeconds(1f);
 
-        EnemyAttackChoice();
-        //playerUnit.TakeDamage(enemyUnit.damage);
 
-        if (playerUnit.currentHP <= 0)
+        //playerUnit.TakeDamage(enemyUnit.damage);
+        enemyUnit.EnemyAttackChoice();
+
+
+        if (playerUnit.Hero.currentHP <= 0)
         {
             state = BattleState.Lost;
             StateName.text = "Defeat";

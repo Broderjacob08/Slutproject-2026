@@ -7,16 +7,21 @@ public class Player : MonoBehaviour
 {
     public TextMeshProUGUI HPCounter;
 
-    Player_Stats Hero = new Player_Stats("Hero", 100, 100, 10);
+    public Player_Stats Hero;
 
     Weapon Sword = new Weapon("Great sword", 15, 100, 1);
 
+    private void Start()
+    {
+        Hero = new Player_Stats("Hero", 100, 100, 10);
+    }
     public int SwordDamage()
     {
         int SwordDamage = Hero.basedmg + Sword.Abilitydmg;
 
         return SwordDamage;
     }
+
     public void TakeDamage(int amount)
     {
         Hero.currentHP -= amount;
