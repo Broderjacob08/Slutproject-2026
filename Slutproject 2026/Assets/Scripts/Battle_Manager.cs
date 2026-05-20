@@ -66,7 +66,8 @@ public class Battle_Manager : MonoBehaviour
 
         playerUnit.TakeDamage(playerUnit.HealSpell());
 
-      
+        yield return new WaitForSeconds(1f);
+
         state = BattleState.EnemyTurn;
         StateName.text = "Monster Turn";
         StartCoroutine(EnemyTurn());
@@ -113,11 +114,15 @@ public class Battle_Manager : MonoBehaviour
         state = BattleState.Busy;
         StateName.text = "Enemy Action";
 
-        yield return new WaitForSeconds(1f);
+        enemyUnit.StartSkullSpiderAnimation();
 
+        yield return new WaitForSeconds(1.3f);
 
-        //playerUnit.TakeDamage(enemyUnit.damage);
         playerUnit.TakeDamage(enemyUnit.EnemyAttackChoice());
+
+        
+        
+        enemyUnit.StopSkullSpiderAnimation();
 
         yield return new WaitForSeconds(1f);
 

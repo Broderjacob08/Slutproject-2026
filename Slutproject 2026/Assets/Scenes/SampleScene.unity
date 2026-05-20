@@ -1202,6 +1202,7 @@ GameObject:
   - component: {fileID: 715309653}
   - component: {fileID: 715309652}
   - component: {fileID: 715309654}
+  - component: {fileID: 715309655}
   m_Layer: 0
   m_Name: Triangle
   m_TagString: Untagged
@@ -1296,6 +1297,28 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::UnSkull_SkullSpider
   HPCounter: {fileID: 835348266}
   Unskulled_Spider: {fileID: 0}
+--- !u!95 &715309655
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 715309651}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 221da7bfaa775324293972be4da678ca, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &794008154
 GameObject:
   m_ObjectHideFlags: 0

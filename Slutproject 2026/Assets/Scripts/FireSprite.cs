@@ -25,8 +25,8 @@ public class FireSprite : MonoBehaviour
         {
             int SpiritFlame = Fire_Spirit.baseModifier + burn.Abilitydmg;
 
-            AttackName = "Firey Crunch";
-            print("crunch");
+            AttackName = "Spirit Flame";
+            print("burn");
             return SpiritFlame;
 
 

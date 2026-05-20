@@ -14,9 +14,20 @@ public class UnSkull_SkullSpider : MonoBehaviour
 
     Enemy_Attacks LavaSpray = new Enemy_Attacks("Fire storm", 20, 0, 10);
 
+    
+
     private void Start()
     {
         Unskulled_Spider = new Enemy_Stats("Unskulled Skull-spider", 200, 200, 10);
+    }
+
+    public void StopSkullSpiderAnimation()
+    {
+        GetComponent<Animator>().SetBool("Attack", false);
+    }
+    public void StartSkullSpiderAnimation()
+    {
+        GetComponent<Animator>().SetBool("Attack", true);
     }
 
     public int EnemyAttackChoice()
@@ -31,6 +42,7 @@ public class UnSkull_SkullSpider : MonoBehaviour
 
             AttackName = "Firey Crunch";
             print("crunch");
+
             return FieryCrunch;
             
 
