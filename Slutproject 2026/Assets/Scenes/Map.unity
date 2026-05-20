@@ -132,7 +132,7 @@ GameObject:
   - component: {fileID: 103223393}
   - component: {fileID: 103223392}
   m_Layer: 5
-  m_Name: Button
+  m_Name: Button 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -203,15 +203,15 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 11500000, guid: 18b81589185d36f4e8ee69aaf002617b, type: 3}
-        m_TargetAssemblyTypeName: levelManager, Assembly-CSharp
-        m_MethodName: 
-        m_Mode: 1
+        m_TargetAssemblyTypeName: UnityEditor.MonoScript, UnityEditor.CoreModule
+        m_MethodName: set_name
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: SampleScene
+          m_StringArgument: Level 2
           m_BoolArgument: 0
         m_CallState: 1
 --- !u!114 &103223393
@@ -309,7 +309,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Ian Workshop
+  m_text: 'Level 2
 
 '
   m_isRightToLeft: 0
@@ -403,7 +403,7 @@ GameObject:
   - component: {fileID: 276246315}
   - component: {fileID: 276246314}
   m_Layer: 5
-  m_Name: 1Button
+  m_Name: Button 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -473,16 +473,16 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 454612428}
-        m_TargetAssemblyTypeName: levelManager, Assembly-CSharp
-        m_MethodName: OnClick
-        m_Mode: 1
+      - m_Target: {fileID: 11500000, guid: 18b81589185d36f4e8ee69aaf002617b, type: 3}
+        m_TargetAssemblyTypeName: UnityEditor.MonoScript, UnityEditor.CoreModule
+        m_MethodName: set_name
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: SampleScene
+          m_StringArgument: Level 1
           m_BoolArgument: 0
         m_CallState: 1
 --- !u!114 &276246315
@@ -656,14 +656,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::levelManager
   Levels:
-  - keyNeeded: 0
-    keyGiven: 0
+  - keyneeded: 0
+    keygiven: 0
     blah: {fileID: 276246312}
     isLocked: 0
-  - keyNeeded: 0
-    keyGiven: 0
+    LevelName: SampleScene
+  - keyneeded: 0
+    keygiven: 0
     blah: {fileID: 103223390}
-    isLocked: 1
+    isLocked: 0
+    LevelName: Ian Workshop
 --- !u!4 &454612429
 Transform:
   m_ObjectHideFlags: 0
@@ -815,7 +817,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: SampleScene
+  m_text: 'Level 1
+
+'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}

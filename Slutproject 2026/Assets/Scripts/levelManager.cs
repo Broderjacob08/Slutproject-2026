@@ -10,14 +10,19 @@ public class levelManager : MonoBehaviour
 {
     
     public static levelManager instance;
-    public string LevelName;
 
     public List<level> Levels = new List<level>();
 
-    public string keyneeded;
-    public string keygiven;
-    public bool isLocked;
+    private void Start()
+    {
+        int index = 0;
 
+        foreach(level l in Levels)
+        {
+            l.SetKeys(index, index + 1);
+            index++;
+        }
+    }
 }
 [System.Serializable]
 public class level
@@ -36,6 +41,12 @@ public class level
         {
             isLocked = false;
         }
+    }
+
+    public void SetKeys(int keyNeeded, int keyGiven)
+    {
+        keyneeded = keyNeeded;
+        keygiven = keyGiven;
     }
 
     public void OnClick()
