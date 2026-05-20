@@ -47,6 +47,36 @@ public class Battle_Manager : MonoBehaviour
         Debug.Log("Players turn");
         //Fixa UI för actions
     }
+    public void OnWaveRageButton()
+    {
+        if (state != BattleState.PlayerTurn) return;
+        StartCoroutine(WaveRageSpell());
+    }
+    System.Collections.IEnumerator WaveRageSpell()
+    {
+        state = BattleState.Busy;
+        StateName.text = "Hero Action";
+
+
+
+        yield return new WaitForSeconds(1f);
+
+        enemyUnit.TakeDamage(playerUnit.WaveRage());
+        enemyUnit1.TakeDamage(playerUnit.WaveRage());
+
+        if (enemyUnit.Unskulled_Spider.currentHP <= 0 && enemyUnit1.Fire_Spirit.currentHP <= 0)
+        {
+            state = BattleState.Won;
+            StateName.text = "Enemies defeated";
+            EndBattle();
+        }
+        else
+        {
+            state = BattleState.EnemyTurn;
+            StateName.text = "Monster Turn";
+            StartCoroutine(EnemyTurn());
+        }
+    }
     public void OnHealButton()
     {
         if (state != BattleState.PlayerTurn) return;
@@ -114,19 +144,39 @@ public class Battle_Manager : MonoBehaviour
         state = BattleState.Busy;
         StateName.text = "Enemy Action";
 
-        enemyUnit.StartSkullSpiderAnimation();
 
-        yield return new WaitForSeconds(1.3f);
+        if (enemyUnit.Unskulled_Spider.currentHP > 0)
+        {
+            enemyUnit.StartSkullSpiderAnimation();
 
-        playerUnit.TakeDamage(enemyUnit.EnemyAttackChoice());
+            yield return new WaitForSeconds(1.3f);
+
+            playerUnit.TakeDamage(enemyUnit.EnemyAttackChoice());
+
+
+
+            enemyUnit.StopSkullSpiderAnimation();
+        }
+        else
+        {
+
+        }
+
+
+        if (enemyUnit1.Fire_Spirit.currentHP > 0)
+        {
+            yield return new WaitForSeconds(1f);
+
+            playerUnit.TakeDamage(enemyUnit1.EnemyAttackChoice());
+        }
+        else
+        {
+
+        }
 
         
+
         
-        enemyUnit.StopSkullSpiderAnimation();
-
-        yield return new WaitForSeconds(1f);
-
-        playerUnit.TakeDamage(enemyUnit1.EnemyAttackChoice());
 
         if (playerUnit.Hero.currentHP <= 0)
         {

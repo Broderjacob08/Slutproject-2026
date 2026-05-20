@@ -11,6 +11,8 @@ public class Player : MonoBehaviour
 
     Weapon Sword = new Weapon("Great sword", 15, 100, 1);
 
+    Spell Wave = new Spell("Wave Rage", 30, 250, 10, 2);
+
     private void Start()
     {
         Hero = new Player_Stats("Hero", 100, 100, 10);
@@ -30,6 +32,14 @@ public class Player : MonoBehaviour
         int HealEffect = Hero.basedmg * -1 - BonusModifier;
 
         return HealEffect;
+    }
+    public int WaveRage()
+    {
+        int BonusModifier = Random.Range(10, 25);
+
+        int WaveRageDamage = Hero.basedmg + Wave.Abilitydmg + BonusModifier;
+
+        return WaveRageDamage;
     }
 
     public void TakeDamage(int amount)
