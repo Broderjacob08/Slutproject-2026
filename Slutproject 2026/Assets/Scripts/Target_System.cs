@@ -7,7 +7,7 @@ public class Target_System : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
-            target
+             
         }
     }
 }
