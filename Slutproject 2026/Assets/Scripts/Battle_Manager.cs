@@ -1,5 +1,8 @@
+using JetBrains.Annotations;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
+using System.Collections;
 //Alexander
 public enum BattleState
 {
@@ -16,11 +19,13 @@ public class Battle_Manager : MonoBehaviour
 
     TextMeshProUGUI StateName;
 
+    public int WaveCooldown = 0;
+
     
 
     public Player playerUnit;
-    public UnSkull_SkullSpider enemyUnit;
-    public FireSprite enemyUnit1;
+    public Enemy_class_IDK enemyUnit;
+    public Enemy_class_IDK enemyUnit1;
     void Start()
     {
         StateName = GetComponent<TextMeshProUGUI>();
@@ -45,15 +50,26 @@ public class Battle_Manager : MonoBehaviour
     void PlayerTurn()
     {
         Debug.Log("Players turn");
+        WaveCooldown -= 1;
         //Fixa UI för actions
     }
     public void OnWaveRageButton()
     {
         if (state != BattleState.PlayerTurn) return;
+        if (WaveCooldown > 0) return;
         StartCoroutine(WaveRageSpell());
     }
-    System.Collections.IEnumerator WaveRageSpell()
+    IEnumerator WaveRageSpell()
     {
+        if(enemyUnit is UnSkull_SkullSpider E1)
+        {
+
+        }
+        if(enemyUnit1 is FireSprite E2)
+        {
+
+        }
+        
         state = BattleState.Busy;
         StateName.text = "Hero Action";
 
@@ -63,6 +79,17 @@ public class Battle_Manager : MonoBehaviour
 
         enemyUnit.TakeDamage(playerUnit.WaveRage());
         enemyUnit1.TakeDamage(playerUnit.WaveRage());
+
+        if (enemyUnit.Unskulled_Spider.currentHP <= 0)
+        {
+            enemyUnit.SkullSpiderDeathAnimation();
+        }
+        if (enemyUnit1.Fire_Spirit.currentHP <= 0)
+        {
+            enemyUnit1.FireSpiritDeathAnimation();
+        }
+
+        WaveCooldown = 3;
 
         if (enemyUnit.Unskulled_Spider.currentHP <= 0 && enemyUnit1.Fire_Spirit.currentHP <= 0)
         {
@@ -82,7 +109,7 @@ public class Battle_Manager : MonoBehaviour
         if (state != BattleState.PlayerTurn) return;
         StartCoroutine(HealthSpell());
     }
-    System.Collections.IEnumerator HealthSpell()
+    IEnumerator HealthSpell()
     {
         state = BattleState.Busy;
         StateName.text = "Hero Action";
@@ -110,7 +137,7 @@ public class Battle_Manager : MonoBehaviour
         if (state != BattleState.PlayerTurn) return;
         StartCoroutine(SwordAttack());
     }
-    System.Collections.IEnumerator SwordAttack()
+    IEnumerator SwordAttack()
     {
         state = BattleState.Busy;
         StateName.text = "Hero Action";
@@ -123,6 +150,15 @@ public class Battle_Manager : MonoBehaviour
 
         
         enemyUnit.TakeDamage(playerUnit.SwordDamage());
+
+        if(enemyUnit.Unskulled_Spider.currentHP <= 0)
+        {
+            enemyUnit.SkullSpiderDeathAnimation();
+        }
+        if (enemyUnit1.Fire_Spirit.currentHP <= 0)
+        {
+            enemyUnit1.FireSpiritDeathAnimation();
+        }
 
         if (enemyUnit.Unskulled_Spider.currentHP <= 0 && enemyUnit1.Fire_Spirit.currentHP <=0)
         {
@@ -139,7 +175,7 @@ public class Battle_Manager : MonoBehaviour
 
     }
 
-    System.Collections.IEnumerator EnemyTurn()
+    IEnumerator EnemyTurn()
     {
         state = BattleState.Busy;
         StateName.text = "Enemy Action";
@@ -160,14 +196,20 @@ public class Battle_Manager : MonoBehaviour
         else
         {
 
+            
+
         }
 
 
         if (enemyUnit1.Fire_Spirit.currentHP > 0)
         {
-            yield return new WaitForSeconds(1f);
+            enemyUnit1.StartFireSpiritAnimation();
+            
+            yield return new WaitForSeconds(0.8f);
 
             playerUnit.TakeDamage(enemyUnit1.EnemyAttackChoice());
+
+            enemyUnit1.StopFireSpiritAnimation();
         }
         else
         {
