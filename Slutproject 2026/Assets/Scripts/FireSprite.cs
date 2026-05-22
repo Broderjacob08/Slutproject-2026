@@ -6,29 +6,18 @@ public class FireSprite : Enemy_class_IDK
 {
     public TextMeshProUGUI HPCounter;
 
-    public Enemy_Stats Fire_Spirit;
+    
 
     Enemy_Attacks burn = new Enemy_Attacks("Spirit Flame", 5, 0, 1);
 
     private void Start()
     {
-        Fire_Spirit = new Enemy_Stats("Fire spirit", 50, 50, 5);
+        Enemy_Stats = new Enemy_Stats("Fire spirit", 50, 50, 5);
     }
-    public void StopFireSpiritAnimation()
-    {
-        GetComponent<Animator>().SetBool("Attack", false);
-    }
-    public void StartFireSpiritAnimation()
-    {
-        GetComponent<Animator>().SetBool("Attack", true);
-    }
-    public void FireSpiritDeathAnimation()
-    {
-        GetComponent<Animator>().SetBool("Death", true);
-    }
+    
 
 
-    public int EnemyAttackChoice()
+    public override int EnemyAttackChoice()
     {
         string AttackName;
 
@@ -36,7 +25,7 @@ public class FireSprite : Enemy_class_IDK
 
         if (NextAttack == 1)
         {
-            int SpiritFlame = Fire_Spirit.baseModifier + burn.Abilitydmg;
+            int SpiritFlame = Enemy_Stats.baseModifier + burn.Abilitydmg;
 
             AttackName = "Spirit Flame";
             print("burn");
@@ -58,12 +47,12 @@ public class FireSprite : Enemy_class_IDK
     }
     public void TakeDamage(int amount)
     {
-        Fire_Spirit.currentHP -= amount;
-        if (Fire_Spirit.currentHP < 0) Fire_Spirit.currentHP = 0;
+        Enemy_Stats.currentHP -= amount;
+        if (Enemy_Stats.currentHP < 0) Enemy_Stats.currentHP = 0;
     }
     private void Update()
     {
-        HPCounter.text = Fire_Spirit.currentHP + "of" + Fire_Spirit.maxHP;
+        HPCounter.text = Enemy_Stats.currentHP + "of" + Enemy_Stats.maxHP;
     }
 
 }

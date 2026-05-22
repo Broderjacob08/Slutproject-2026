@@ -8,4 +8,9 @@ public class Enemy_Stats : Unit_Stats
     {
         this.baseModifier = baseModifier;
     }
+    public void TakeDamage(int amount)
+    {
+        currentHP -= amount;
+        if (currentHP < 0) currentHP = 0;
+    }
 }

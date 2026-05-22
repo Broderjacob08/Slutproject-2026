@@ -21,11 +21,25 @@ public class Battle_Manager : MonoBehaviour
 
     public int WaveCooldown = 0;
 
-    
+    public static Battle_Manager instance;
+
+    public Enemy_class_IDK Target;
 
     public Player playerUnit;
     public Enemy_class_IDK enemyUnit;
     public Enemy_class_IDK enemyUnit1;
+
+    private void Awake()
+    {
+        if(instance == null)
+        {
+            instance = this;
+        }
+        else
+        {
+            Destroy(this);
+        }
+    }
     void Start()
     {
         StateName = GetComponent<TextMeshProUGUI>();
@@ -42,7 +56,8 @@ public class Battle_Manager : MonoBehaviour
         state = BattleState.PlayerTurn;
         StateName.text = "Hero Turn";
 
-
+        Target = enemyUnit;
+        
 
         PlayerTurn();
     }
@@ -77,21 +92,20 @@ public class Battle_Manager : MonoBehaviour
 
         yield return new WaitForSeconds(1f);
 
-        enemyUnit.TakeDamage(playerUnit.WaveRage());
-        enemyUnit1.TakeDamage(playerUnit.WaveRage());
-
-        if (enemyUnit.Unskulled_Spider.currentHP <= 0)
+        enemyUnit.Enemy_Stats.TakeDamage(playerUnit.WaveRage());
+        enemyUnit1.Enemy_Stats.TakeDamage(playerUnit.WaveRage());
+        if (enemyUnit.Enemy_Stats.currentHP <= 0)
         {
-            enemyUnit.SkullSpiderDeathAnimation();
+            enemyUnit.DeathAnimation();
         }
-        if (enemyUnit1.Fire_Spirit.currentHP <= 0)
+        if (enemyUnit1.Enemy_Stats.currentHP <= 0)
         {
-            enemyUnit1.FireSpiritDeathAnimation();
+            enemyUnit1.DeathAnimation();
         }
 
         WaveCooldown = 3;
 
-        if (enemyUnit.Unskulled_Spider.currentHP <= 0 && enemyUnit1.Fire_Spirit.currentHP <= 0)
+        if (enemyUnit.Enemy_Stats.currentHP <= 0 && enemyUnit1.Enemy_Stats.currentHP <= 0)
         {
             state = BattleState.Won;
             StateName.text = "Enemies defeated";
@@ -149,18 +163,15 @@ public class Battle_Manager : MonoBehaviour
         yield return new WaitForSeconds(1f);
 
         
-        enemyUnit.TakeDamage(playerUnit.SwordDamage());
+        Target.Enemy_Stats.TakeDamage(playerUnit.SwordDamage());
 
-        if(enemyUnit.Unskulled_Spider.currentHP <= 0)
+        if(Target.Enemy_Stats.currentHP <= 0)
         {
-            enemyUnit.SkullSpiderDeathAnimation();
+            Target.DeathAnimation();
         }
-        if (enemyUnit1.Fire_Spirit.currentHP <= 0)
-        {
-            enemyUnit1.FireSpiritDeathAnimation();
-        }
+        
 
-        if (enemyUnit.Unskulled_Spider.currentHP <= 0 && enemyUnit1.Fire_Spirit.currentHP <=0)
+        if (Target.Enemy_Stats.currentHP <= 0)
         {
             state = BattleState.Won;
             StateName.text = "Enemies defeated";
@@ -181,9 +192,9 @@ public class Battle_Manager : MonoBehaviour
         StateName.text = "Enemy Action";
 
 
-        if (enemyUnit.Unskulled_Spider.currentHP > 0)
+        if (enemyUnit.Enemy_Stats.currentHP > 0)
         {
-            enemyUnit.StartSkullSpiderAnimation();
+            enemyUnit.DeathAnimation();
 
             yield return new WaitForSeconds(1.3f);
 
@@ -191,7 +202,7 @@ public class Battle_Manager : MonoBehaviour
 
 
 
-            enemyUnit.StopSkullSpiderAnimation();
+            enemyUnit.StopAttackAnimation();
         }
         else
         {
@@ -201,15 +212,15 @@ public class Battle_Manager : MonoBehaviour
         }
 
 
-        if (enemyUnit1.Fire_Spirit.currentHP > 0)
+        if (enemyUnit1.Enemy_Stats.currentHP > 0)
         {
-            enemyUnit1.StartFireSpiritAnimation();
+            enemyUnit1.StartAttackAnimation();
             
             yield return new WaitForSeconds(0.8f);
 
             playerUnit.TakeDamage(enemyUnit1.EnemyAttackChoice());
 
-            enemyUnit1.StopFireSpiritAnimation();
+            enemyUnit1.StopAttackAnimation();
         }
         else
         {

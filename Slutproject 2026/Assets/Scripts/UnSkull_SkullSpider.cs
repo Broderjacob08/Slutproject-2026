@@ -8,7 +8,7 @@ public class UnSkull_SkullSpider : Enemy_class_IDK
 {
     public TextMeshProUGUI HPCounter;
 
-    public Enemy_Stats Unskulled_Spider;
+    
 
     Enemy_Attacks bite = new Enemy_Attacks("Fiery Crunch", 10, 0, 1);
 
@@ -18,23 +18,13 @@ public class UnSkull_SkullSpider : Enemy_class_IDK
 
     private void Start()
     {
-        Unskulled_Spider = new Enemy_Stats("Unskulled Skull-spider", 200, 200, 10);
+        Enemy_Stats = new Enemy_Stats("Unskulled Skull-spider", 200, 200, 10);
     }
 
-    public void StopSkullSpiderAnimation()
-    {
-        GetComponent<Animator>().SetBool("Attack", false);
-    }
-    public void StartSkullSpiderAnimation()
-    {
-        GetComponent<Animator>().SetBool("Attack", true);
-    }
-    public void SkullSpiderDeathAnimation()
-    {
-        GetComponent<Animator>().SetBool("Death", true);
-    }
+    
+    
 
-    public int EnemyAttackChoice()
+    public override int EnemyAttackChoice()
     {
         string AttackName;
 
@@ -42,7 +32,7 @@ public class UnSkull_SkullSpider : Enemy_class_IDK
 
         if(NextAttack == 1)
         {
-            int FieryCrunch = Unskulled_Spider.baseModifier + bite.Abilitydmg;
+            int FieryCrunch = Enemy_Stats.baseModifier + bite.Abilitydmg;
 
             AttackName = "Firey Crunch";
             print("crunch");
@@ -52,7 +42,7 @@ public class UnSkull_SkullSpider : Enemy_class_IDK
 
         }else if(NextAttack == 2)
         {
-            int FireStorm = Unskulled_Spider.baseModifier + LavaSpray.Abilitydmg;
+            int FireStorm = Enemy_Stats.baseModifier + LavaSpray.Abilitydmg;
 
             AttackName = "Fire Storm";
             print("Storm");
@@ -71,12 +61,12 @@ public class UnSkull_SkullSpider : Enemy_class_IDK
     }
     public void TakeDamage(int amount)
     {
-        Unskulled_Spider.currentHP -= amount;
-        if (Unskulled_Spider.currentHP < 0) Unskulled_Spider.currentHP = 0;
+        Enemy_Stats.currentHP -= amount;
+        if (Enemy_Stats.currentHP < 0) Enemy_Stats.currentHP = 0;
     }
     private void Update()
     {
-        HPCounter.text = Unskulled_Spider.currentHP + "of" + Unskulled_Spider.maxHP;
+        HPCounter.text = Enemy_Stats.currentHP + "of" + Enemy_Stats.maxHP;
     }
 
 }

@@ -724,6 +724,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   state: 0
+  WaveCooldown: 0
   playerUnit: {fileID: 248095049}
   enemyUnit: {fileID: 715309654}
   enemyUnit1: {fileID: 1812495708}
@@ -1302,7 +1303,7 @@ Transform:
   m_GameObject: {fileID: 715309651}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0.008726558, w: 0.999962}
-  m_LocalPosition: {x: 5.89, y: 2.56, z: 0}
+  m_LocalPosition: {x: 5.89, y: 2.56, z: 1}
   m_LocalScale: {x: 10, y: 10, z: 9.703872}
   m_ConstrainProportionsScale: 0
   m_Children: []
