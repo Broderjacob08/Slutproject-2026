@@ -2,7 +2,7 @@ using TMPro;
 using UnityEngine;
 //Alexander
 
-public class FireSprite : MonoBehaviour
+public class FireSprite : Enemy_class_IDK
 {
     public TextMeshProUGUI HPCounter;
 
@@ -14,6 +14,19 @@ public class FireSprite : MonoBehaviour
     {
         Fire_Spirit = new Enemy_Stats("Fire spirit", 50, 50, 5);
     }
+    public void StopFireSpiritAnimation()
+    {
+        GetComponent<Animator>().SetBool("Attack", false);
+    }
+    public void StartFireSpiritAnimation()
+    {
+        GetComponent<Animator>().SetBool("Attack", true);
+    }
+    public void FireSpiritDeathAnimation()
+    {
+        GetComponent<Animator>().SetBool("Death", true);
+    }
+
 
     public int EnemyAttackChoice()
     {

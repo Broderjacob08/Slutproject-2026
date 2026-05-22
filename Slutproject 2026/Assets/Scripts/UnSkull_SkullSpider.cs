@@ -4,7 +4,7 @@ using UnityEngine;
 //Alexander
 
 
-public class UnSkull_SkullSpider : MonoBehaviour
+public class UnSkull_SkullSpider : Enemy_class_IDK
 {
     public TextMeshProUGUI HPCounter;
 
@@ -28,6 +28,10 @@ public class UnSkull_SkullSpider : MonoBehaviour
     public void StartSkullSpiderAnimation()
     {
         GetComponent<Animator>().SetBool("Attack", true);
+    }
+    public void SkullSpiderDeathAnimation()
+    {
+        GetComponent<Animator>().SetBool("Death", true);
     }
 
     public int EnemyAttackChoice()
