@@ -10,6 +10,7 @@ public class levelManager : MonoBehaviour
 {
     
     public static levelManager instance;
+    public string LevelName;
 
     public List<level> Levels = new List<level>();
 
@@ -22,6 +23,13 @@ public class levelManager : MonoBehaviour
             l.SetKeys(index, index + 1);
             index++;
         }
+
+    }
+
+    public void OnClick(string levelname)
+    {
+
+        UnityEngine.SceneManagement.SceneManager.LoadScene(levelname);
     }
 }
 [System.Serializable]
@@ -31,7 +39,7 @@ public class level
     public int keygiven;
     public GameObject blah;
     public bool isLocked;
-    public string LevelName;
+    
 
     public void UnlockLevels()
     {
@@ -47,18 +55,5 @@ public class level
     {
         keyneeded = keyNeeded;
         keygiven = keyGiven;
-    }
-
-    public void OnClick()
-    {
-        UnityEngine.SceneManagement.SceneManager.LoadScene(LevelName);
-    }
-
-    public void LevelLock() //kollar om leveln är låst
-    {
-        if (isLocked == false)
-        {
-            OnClick();
-        }
     }
 }

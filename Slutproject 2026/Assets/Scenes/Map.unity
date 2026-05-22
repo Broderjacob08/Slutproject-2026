@@ -202,9 +202,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 11500000, guid: 18b81589185d36f4e8ee69aaf002617b, type: 3}
-        m_TargetAssemblyTypeName: UnityEditor.MonoScript, UnityEditor.CoreModule
-        m_MethodName: set_name
+      - m_Target: {fileID: 454612428}
+        m_TargetAssemblyTypeName: levelManager, Assembly-CSharp
+        m_MethodName: OnClick
         m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -473,9 +473,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 11500000, guid: 18b81589185d36f4e8ee69aaf002617b, type: 3}
-        m_TargetAssemblyTypeName: UnityEditor.MonoScript, UnityEditor.CoreModule
-        m_MethodName: set_name
+      - m_Target: {fileID: 454612428}
+        m_TargetAssemblyTypeName: levelManager, Assembly-CSharp
+        m_MethodName: OnClick
         m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -655,17 +655,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18b81589185d36f4e8ee69aaf002617b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::levelManager
+  LevelName: 
   Levels:
   - keyneeded: 0
     keygiven: 0
     blah: {fileID: 276246312}
     isLocked: 0
-    LevelName: SampleScene
   - keyneeded: 0
     keygiven: 0
     blah: {fileID: 103223390}
     isLocked: 0
-    LevelName: Ian Workshop
 --- !u!4 &454612429
 Transform:
   m_ObjectHideFlags: 0
