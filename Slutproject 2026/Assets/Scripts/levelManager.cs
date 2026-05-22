@@ -25,8 +25,8 @@ public class levelManager : MonoBehaviour
         }
 
     }
-
-    public void OnClick(string levelname)
+    
+    public void onClick(string levelname)
     {
 
         UnityEngine.SceneManagement.SceneManager.LoadScene(levelname);
@@ -37,7 +37,6 @@ public class level
 {
     public int keyneeded;
     public int keygiven;
-    public GameObject blah;
     public bool isLocked;
     
 
