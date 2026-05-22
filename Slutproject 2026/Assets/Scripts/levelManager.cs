@@ -3,6 +3,7 @@ using NUnit.Framework;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UI;
 //Ian
 
 [System.Serializable]
@@ -22,14 +23,14 @@ public class levelManager : MonoBehaviour
         {
             l.SetKeys(index, index + 1);
             index++;
+            l.UnlockLevels();
         }
-
     }
     
-    public void onClick(string levelname)
+    public void onClick(string LevelName)
     {
-
-        UnityEngine.SceneManagement.SceneManager.LoadScene(levelname);
+        UnityEngine.SceneManagement.SceneManager.LoadScene(LevelName);
+        Debug.Log("har tryckt på knapp");
     }
 }
 [System.Serializable]
@@ -38,6 +39,7 @@ public class level
     public int keyneeded;
     public int keygiven;
     public bool isLocked;
+    public Button levelButton;
     
 
     public void UnlockLevels()
@@ -47,7 +49,10 @@ public class level
         if (keygiven == keyneeded)
         {
             isLocked = false;
+
         }
+
+        levelButton.interactable = !isLocked;
     }
 
     public void SetKeys(int keyNeeded, int keyGiven)
