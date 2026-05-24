@@ -16,6 +16,8 @@ public enum BattleState
 }
 public class Battle_Manager : MonoBehaviour
 {
+    public bool hasDied = false;
+
     public BattleState state;
 
     TextMeshProUGUI StateName;
@@ -77,7 +79,7 @@ public class Battle_Manager : MonoBehaviour
         if (WaveCooldown > 0) return;
         StartCoroutine(WaveRageSpell());
     }
-    IEnumerator WaveRageSpell()
+    public IEnumerator WaveRageSpell()
     {
         if(enemyUnit is UnSkull_SkullSpider E1)
         {
@@ -100,10 +102,12 @@ public class Battle_Manager : MonoBehaviour
         if (enemyUnit.Enemy_Stats.currentHP <= 0)
         {
             enemyUnit.DeathAnimation();
+            hasDied = true;
         }
         if (enemyUnit1.Enemy_Stats.currentHP <= 0)
         {
             enemyUnit1.DeathAnimation();
+            hasDied = true;
         }
 
         WaveCooldown = 3;
