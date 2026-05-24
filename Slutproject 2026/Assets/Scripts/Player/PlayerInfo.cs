@@ -1,7 +1,8 @@
 using UnityEngine;
 
+[System.Serializable]
 public class PlayerInfo : MonoBehaviour
 {
-    static public int keyValue = 0;
+    public int keyValue = 0;
 
 }
