@@ -3,6 +3,7 @@ using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using System.Collections;
+using UnityEngine.InputSystem;
 //Alexander
 public enum BattleState
 {
@@ -28,6 +29,8 @@ public class Battle_Manager : MonoBehaviour
     public Player playerUnit;
     public Enemy_class_IDK enemyUnit;
     public Enemy_class_IDK enemyUnit1;
+
+    public LayerMask enemyLayer;
 
     private void Awake()
     {
@@ -194,7 +197,7 @@ public class Battle_Manager : MonoBehaviour
 
         if (enemyUnit.Enemy_Stats.currentHP > 0)
         {
-            enemyUnit.DeathAnimation();
+            enemyUnit.StartAttackAnimation();
 
             yield return new WaitForSeconds(1.3f);
 
@@ -253,6 +256,6 @@ public class Battle_Manager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        //if(Physics2D.OverlapCircle())
     }
 }

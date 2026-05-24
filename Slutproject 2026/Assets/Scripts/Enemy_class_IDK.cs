@@ -6,10 +6,12 @@ public class Enemy_class_IDK : MonoBehaviour
 
     private void OnMouseOver()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetKeyDown(KeyCode.Mouse0))
         {
+            
             Battle_Manager.instance.Target = this;
         }
+        Debug.Log("new target");
     }
 
     public virtual void DeathAnimation()
