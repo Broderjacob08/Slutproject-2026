@@ -264,7 +264,7 @@ GameObject:
   - component: {fileID: 248095047}
   - component: {fileID: 248095049}
   m_Layer: 0
-  m_Name: Capsule
+  m_Name: PlayerHero
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -723,6 +723,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a876461204d82341b226c2d607f6588, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
+  playerEXP: {fileID: 0}
+  xpReward: 25
   hasDied: 0
   state: 0
   WaveCooldown: 0

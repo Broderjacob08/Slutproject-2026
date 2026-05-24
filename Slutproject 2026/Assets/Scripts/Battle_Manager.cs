@@ -14,9 +14,15 @@ public enum BattleState
     Won, 
     Lost
 }
+
 public class Battle_Manager : MonoBehaviour
 {
+    public int currentXP = 0;
+
+    public int xpReward = 25;
+
     public bool hasDied = false;
+
 
     public BattleState state;
 
@@ -102,12 +108,33 @@ public class Battle_Manager : MonoBehaviour
         if (enemyUnit.Enemy_Stats.currentHP <= 0)
         {
             enemyUnit.DeathAnimation();
-            hasDied = true;
+
+            
+
         }
         if (enemyUnit1.Enemy_Stats.currentHP <= 0)
         {
             enemyUnit1.DeathAnimation();
+
             hasDied = true;
+            Debug.Log("enemy 0 died");
+
+            GameObject playerObj = GameObject.Find("PlayerHero");
+
+            if (playerObj != null)
+            {
+                //EXP playerEXP = playerObj.GetComponent<EXP>();
+                EXP playerEXP = GameObject.FindAnyObjectByType<EXP>();
+
+                if (playerEXP != null)
+                {
+                    playerEXP.GainExperience(25);
+                }
+            }
+            else
+            {
+                Debug.LogError("Hittade inte något objekt med det namnet aa");
+            }
         }
 
         WaveCooldown = 3;
@@ -262,4 +289,6 @@ public class Battle_Manager : MonoBehaviour
     {
         //if(Physics2D.OverlapCircle())
     }
+
+    
 }

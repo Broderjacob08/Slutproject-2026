@@ -1,14 +1,12 @@
 using UnityEngine;
 
-public class EXP : Battle_Manager
+public class EXP : MonoBehaviour
 {
-    int currentXP = 0;
-
-    public void GainExperience()
+    public int currentXP = 0;
+    //public bool hasDied = false;
+    public void GainExperience(int amount)
     {
-        if(hasDied == true) //när fiende dör sker detta
-        {
-            Debug.Log("enemy died");
-        }
+            currentXP += amount;
+            Debug.Log("Gained " + currentXP + " XP!!");
     }
 }
