@@ -17,6 +17,7 @@ public enum BattleState
 
 public class Battle_Manager : MonoBehaviour
 {
+    //ian skrev koden till bool hasdied
     public int currentXP = 0;
 
     public int xpReward = 25;
@@ -148,32 +149,20 @@ public class Battle_Manager : MonoBehaviour
         {
             enemyUnit.DeathAnimation();
 
-            
+
+            //Ian skrev koden tills ("enemy 0 died)
+            EXP();
+            Debug.Log("Enemy 0 died");
 
         }
         if (enemyUnit1.Enemy_Stats.currentHP <= 0)
         {
             enemyUnit1.DeathAnimation();
 
-            hasDied = true;
-            Debug.Log("enemy 0 died");
 
-            GameObject playerObj = GameObject.Find("PlayerHero");
-
-            if (playerObj != null)
-            {
-                //EXP playerEXP = playerObj.GetComponent<EXP>();
-                EXP playerEXP = GameObject.FindAnyObjectByType<EXP>();
-
-                if (playerEXP != null)
-                {
-                    playerEXP.GainExperience(25);
-                }
-            }
-            else
-            {
-                Debug.LogError("Hittade inte något objekt med det namnet aa");
-            }
+            //Ian skrev koden tills ("enemy 1 died)
+            EXP();
+            Debug.Log("Enemy 0 died");
         }
 
         WaveCooldown = 3;
@@ -324,11 +313,32 @@ public class Battle_Manager : MonoBehaviour
         Debug.Log("Battle ended, you " + state);
     }
 
-    // Update is called once per frame
-    void Update()
+
+    //ian skrev koden till metoden EXP
+    public void GainEXP(int amount)
     {
-        //if(Physics2D.OverlapCircle())
+        if(hasDied == true)
+        {
+            currentXP += amount;
+            Debug.Log("TOT XP " + currentXP);
+        }
     }
 
-    
+    public void EXP()
+    {
+        hasDied = true;
+
+        GameObject playerObj = GameObject.Find("PlayerHero");
+
+        if(playerObj != null)
+        {
+            GainEXP(xpReward);
+        }
+        else
+        {
+            Debug.LogError("Hittade inte något objekt med det namnet");
+        }
+    }
+
+
 }
