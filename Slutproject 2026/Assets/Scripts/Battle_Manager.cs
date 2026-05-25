@@ -23,12 +23,12 @@ public class Battle_Manager : MonoBehaviour
 
     public bool hasDied = false;
 
-
     public BattleState state;
 
     TextMeshProUGUI StateName;
 
     public int WaveCooldown = 0;
+    public int LifestealBubbleCooldown = 0;
 
     public static Battle_Manager instance;
 
@@ -79,22 +79,61 @@ public class Battle_Manager : MonoBehaviour
         WaveCooldown -= 1;
         //Fixa UI för actions
     }
+    public void OnLifestealBubbleButton()
+    {
+        if (state != BattleState.PlayerTurn) return;
+        if (LifestealBubbleCooldown > 0) return;
+        if (playerUnit.currentMana < 80) return;
+        StartCoroutine(LifestealBubbleSpell());
+
+        if (Target.Enemy_Stats.currentHP <= 0)
+        {
+            Target.DeathAnimation();
+        }
+
+
+    }
+    public IEnumerator LifestealBubbleSpell()
+    {
+        state = BattleState.Busy;
+        StateName.text = "Hero Action";
+
+        yield return new WaitForSeconds(1f);
+
+        Target.Enemy_Stats.TakeDamage(playerUnit.LifestealBubbles());
+        playerUnit.TakeDamage(playerUnit.LifestealBubbles() / 2 * -1);
+
+        LifestealBubbleCooldown = 2;
+
+        if (Target.Enemy_Stats.currentHP <= 0)
+        {
+            Target.DeathAnimation();
+        }
+
+        if (Target.Enemy_Stats.currentHP <= 0)
+        {
+            state = BattleState.Won;
+            StateName.text = "Enemies defeated";
+            EndBattle();
+        }
+        else
+        {
+            state = BattleState.EnemyTurn;
+            StateName.text = "Monster Turn";
+            StartCoroutine(EnemyTurn());
+        }
+    }
+
     public void OnWaveRageButton()
     {
         if (state != BattleState.PlayerTurn) return;
         if (WaveCooldown > 0) return;
+        if (playerUnit.currentMana < 100) return;
         StartCoroutine(WaveRageSpell());
     }
     public IEnumerator WaveRageSpell()
     {
-        if(enemyUnit is UnSkull_SkullSpider E1)
-        {
-
-        }
-        if(enemyUnit1 is FireSprite E2)
-        {
-
-        }
+       
         
         state = BattleState.Busy;
         StateName.text = "Hero Action";
@@ -155,6 +194,7 @@ public class Battle_Manager : MonoBehaviour
     public void OnHealButton()
     {
         if (state != BattleState.PlayerTurn) return;
+        if (playerUnit.currentMana < 25) return;
         StartCoroutine(HealthSpell());
     }
     IEnumerator HealthSpell()
